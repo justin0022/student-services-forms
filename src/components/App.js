@@ -4,13 +4,18 @@ import { Link, IndexLink } from 'react-router';
 const App = (props) => {
   return (
     <div>
-      <IndexLink to="/">Home</IndexLink>
-      <Link to="/Form1">Form1</Link>
-      {props.children}
+      <div>
+        <IndexLink to="/">Home</IndexLink>
+        {' | '}
+        <Link to="/AcademicConsessionFormPage">Academic Consession Form</Link>
+        {' | '}
+        <Link to="/SampleForm">Sample Form</Link>
+      </div>
+      <div className="container-fluid">
+        {props.children}
+      </div>
     </div>
   );
 };
-
-
 
 export default App;

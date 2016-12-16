@@ -1,17 +1,13 @@
 import React, {PropTypes} from 'react';
 
 const FormTextInput = (props) => {
-    const handleChange = (e) => {
-        props.onChange(props.name, e.target.value);
-    };
 
     return (
         <input 
             className="large"
             type="text"
             placeholder={props.placeholder}
-            value={props.value}
-            onChange={handleChange}/>
+            value={props.value}/>
     );
 };
 

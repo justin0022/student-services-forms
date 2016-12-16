@@ -9,7 +9,7 @@ import NotFoundPage from './components/NotFoundPage';
 export default  (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage}/>
-    <Route path="form-1" component={Form1}/>
+    <Route path="Form1" component={Form1}/>
     <Route path="*" component={NotFoundPage}/>
   </Route>
 );

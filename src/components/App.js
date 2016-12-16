@@ -6,8 +6,11 @@ const App = (props) => {
     <div>
       <IndexLink to="/">Home</IndexLink>
       <Link to="/Form1">Form1</Link>
+      {props.children}
     </div>
   );
 };
+
+
 
 export default App;

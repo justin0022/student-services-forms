@@ -4,7 +4,7 @@ const FormTextInput = (props) => {
 
     return (
         <input 
-            className="large"
+            className="large span6"
             type="text"
             placeholder={props.placeholder}
             value={props.value}/>

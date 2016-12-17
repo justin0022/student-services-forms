@@ -34,7 +34,7 @@ class AcademicConsessionFormView extends React.Component {
                         </tr>
                         <tr>
                             <td>
-                                <select name="Year Level">
+                                <select className="span6" name="Year Level">
                                     <option value="1">Year Level: 1</option>
                                     <option value="2">Year Level: 2</option>
                                     <option value="3">Year Level: 3</option>
@@ -44,7 +44,7 @@ class AcademicConsessionFormView extends React.Component {
                         </tr>
                         <tr>
                             <td>
-                                <select name="Department">
+                                <select className="span6" name="Department">
                                     <option value="1">Department: 1</option>
                                     <option value="1">Department: 2</option>
                                     <option value="1">Department: 3</option>

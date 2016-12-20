@@ -7,11 +7,17 @@ class AcademicConsessionFormView extends React.Component {
         this.save = this.save.bind(this);
     }
 
-    save() {
-        
+    saveForm() {
+        this.props.formData(this.props.formData);
+    }
+
+    validateEmail(name, value) {
+        this.props.formData(this.props.formData, name, value);
     }
 
     render() {
+        const {formData} = this.props;
+
         return (
             <div>
                 <div>
@@ -20,7 +26,7 @@ class AcademicConsessionFormView extends React.Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td><FormTextInput placeholder="First Name"/></td>
+                            <td><FormTextInput onChange={this.writeValue} placeholder="First Name" name="FirstName" value={formData.academicConsessionForm.firstName} /></td>
                             <td><FormTextInput placeholder="Last Name"/></td>
                         </tr>
                         <tr>
@@ -57,6 +63,11 @@ class AcademicConsessionFormView extends React.Component {
             </div>
         );
     }      
+}
+
+AcademicConsessionFormView.PropTypes = {
+    saveForm: PropTypes.func.isRequired,
+    validateEmail: PropTypes.func.isRequired
 }
 
 export default AcademicConsessionFormView;

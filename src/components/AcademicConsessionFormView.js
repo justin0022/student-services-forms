@@ -1,72 +1,24 @@
-import React, {PropTypes} from 'react';
-import FormTextInput from './FormTextInput';
+import React from 'react';
+import {Field, reduxForm} from 'redux-form';
 
 class AcademicConsessionFormView extends React.Component {
-    constructor(props, context) {
-        super (props, context);
-        this.state = {value: ''};
-        this.handleSaveForm = this.handleSaveForm.bind(this);
-    }
-
-    handleSaveForm() {
-        this.props.saveform();
-    }
-
-    handleValidateEmail(name, value) {
-        this.props.validateEmail(this.props.formData, name, value);
-    }
-
     render() {
+        const { handleSubmit } = this.props;
         return (
-            <div>
+            <form onSubmit={handleSubmit}>
+                <h1>Request for Academic Consession</h1>
                 <div>
-                    <h1>Request for Academic Consession</h1>
+                    <label htmlFor="firstName">First Name</label>
+                    <Field name="firstName" component="input" type="text"/>
                 </div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td><FormTextInput onChange={this.props} placeholder="First Name" name="FirstName" value=""/></td>
-                            <td><FormTextInput placeholder="Last Name"/></td>
-                        </tr>
-                        <tr>
-                            <td><FormTextInput placeholder="Student Number"/></td>
-                        </tr>
-                        <tr>
-                            <td><FormTextInput placeholder="Email"/></td>
-                        </tr>
-                        <tr>
-                            <td><FormTextInput placeholder="Phone"/></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <select className="span6" name="Year Level">
-                                    <option value="1">Year Level: 1</option>
-                                    <option value="2">Year Level: 2</option>
-                                    <option value="3">Year Level: 3</option>
-                                    <option value="4">Year Level: 4</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <select className="span6" name="Department">
-                                    <option value="1">Department: 1</option>
-                                    <option value="1">Department: 2</option>
-                                    <option value="1">Department: 3</option>
-                                    <option value="1">Department: 4</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            </form>
+            
         );
-    }      
+    }
 }
 
-AcademicConsessionFormView.PropTypes = {
-    saveForm: PropTypes.func.isRequired,
-    validateEmail: PropTypes.func.isRequired
-};
+AcademicConsessionFormView = reduxForm({
+    form: 'AcademicConsessionFormView'
+})(AcademicConsessionFormView);
 
 export default AcademicConsessionFormView;

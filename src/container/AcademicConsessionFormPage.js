@@ -8,7 +8,8 @@ export const AcademicConsessionFormPage = (props) => {
     return (
         <AcademicConsessionFormView 
             saveForm={props.saveForm}
-            validateEmail={props.actions.validateEmail}    
+            validateEmail={props.actions.validateEmail}
+            formData={props.formData}   
         />
     );
 };
@@ -20,7 +21,7 @@ AcademicConsessionFormPage.PropTypes = {
 
 function mapStateToProps(state) {
     return {
-        saveForm: state.userInformation.formData.academicConsessionForm
+        formData: state.formData
     };
 }
 

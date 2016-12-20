@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const FormTextInput = (props) => {
     const handleChange = (e) => {
-        props.onChange(props.name, e.targe.value)
+        props.onChange(props.name, e.target.value);
     };
     return (
         <input 

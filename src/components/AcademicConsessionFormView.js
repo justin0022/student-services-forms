@@ -30,7 +30,7 @@ const AcademicConsessionFormView = (props) => {
                 <div className="span6">
                     <Field name="email" type="email"
                         component={RenderField} label="Email"
-                        validate={validate.email}
+                        validate={[validate.email, validate.required]}
                     />
                 </div>
             </div>

@@ -10,9 +10,8 @@ const AcademicConsessionFormView = (props) => {
             <h1>Request for Academic Consession</h1>
             <div className="row-fluid">
                 <div className="span6">
-                    <Field name="firstName" type="text" component={RenderField} label="First Name"/>
-                    <Field name="username" type="text"
-                        component={RenderField} label="Username"
+                    <Field name="firstName" type="text"
+                        component={RenderField} label="First Name"
                         validate={[ validate.required, validate.maxLength15 ]}
                     />
                 </div>
@@ -29,8 +28,10 @@ const AcademicConsessionFormView = (props) => {
             </div>
             <div className="row-fluid">
                 <div className="span6">
-                    <label htmlFor="email">Email</label>
-                    <Field name="email" component="input" type="text" placeholder="Email" className="input"/>
+                    <Field name="email" type="email"
+                        component={RenderField} label="Email"
+                        validate={validate.email}
+                    />
                 </div>
             </div>
             <div className="row-fluid">

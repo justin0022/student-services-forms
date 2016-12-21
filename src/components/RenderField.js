@@ -12,8 +12,8 @@ const RenderField = ({ input, label, type, meta: { touched, error, warning } }) 
 
 RenderField.propTypes = {
   input: PropTypes.object.isRequired,
-  label: PropTypes.object.isRequired,
-  type: PropTypes.object.isRequired,
+  label: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   meta: PropTypes.object.isRequired
 };
 

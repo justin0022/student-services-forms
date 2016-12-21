@@ -3,6 +3,7 @@ import {Field, reduxForm, formValueSelector} from 'redux-form';
 import { connect } from 'react-redux';
 import RenderField from './RenderField';
 import * as validate from '../constants/Validate';
+import NameField from './NameField';
 
 let AcademicConsessionFormView = (props) => {
     const { handleSubmit, numberOfCoursesValue } = props;
@@ -11,14 +12,10 @@ let AcademicConsessionFormView = (props) => {
             <h1>Request for Academic Consession</h1>
             <div className="row-fluid">
                 <div className="span6">
-                    <Field name="firstName" type="text"
-                        component={RenderField} label="First Name"
-                        validate={[ validate.required ]}
-                    />
+                    <NameField name="firstName" label="First Name" placeholder="First Name"/>
                 </div>
                 <div className="span6">
-                    <label htmlFor="lastName">Last Name</label>
-                    <Field name="lastName" component="input" type="text" placeholder="Last Name" className="input"/>
+                    <NameField name="lastName" label="Last Name" placeholder="Last Name"/>
                 </div>
             </div>
             <div className="row-fluid">
@@ -87,8 +84,7 @@ let AcademicConsessionFormView = (props) => {
 };
 
 AcademicConsessionFormView.propTypes = {
-    handleSubmit: PropTypes.object.isRequired,
-    numberOfCoursesValue: PropTypes.object.isRequired
+    handleSubmit: PropTypes.func.isRequired
 };
 
 const selector = formValueSelector('AcademicConsessionFormView');

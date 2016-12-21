@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {PropTypes} from 'react';
 
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+const RenderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
     <label>{label}</label>
     <div>
@@ -8,6 +8,13 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
   </div>
-)
+);
 
-export default renderField
+RenderField.propTypes = {
+  input: PropTypes.object.isRequired,
+  label: PropTypes.object.isRequired,
+  type: PropTypes.object.isRequired,
+  meta: PropTypes.object.isRequired
+};
+
+export default RenderField;

@@ -1,8 +1,8 @@
-import React from 'react'
-import {Field, reduxForm, formValueSelector} from 'redux-form'
-import { connect } from 'react-redux'
-import RenderField from './RenderField'
-import * as validate from '../constants/Validate'
+import React, {PropTypes} from 'react';
+import {Field, reduxForm, formValueSelector} from 'redux-form';
+import { connect } from 'react-redux';
+import RenderField from './RenderField';
+import * as validate from '../constants/Validate';
 
 let AcademicConsessionFormView = (props) => {
     const { handleSubmit, numberOfCoursesValue } = props;
@@ -13,7 +13,7 @@ let AcademicConsessionFormView = (props) => {
                 <div className="span6">
                     <Field name="firstName" type="text"
                         component={RenderField} label="First Name"
-                        validate={[ validate.required, validate.maxLength15 ]}
+                        validate={[ validate.required ]}
                     />
                 </div>
                 <div className="span6">
@@ -83,18 +83,23 @@ let AcademicConsessionFormView = (props) => {
             </div>
         </form>
         
-    )
-}
+    );
+};
 
-const selector = formValueSelector('AcademicConsessionFormView')
+AcademicConsessionFormView.propTypes = {
+    handleSubmit: PropTypes.object.isRequired,
+    numberOfCoursesValue: PropTypes.object.isRequired
+};
+
+const selector = formValueSelector('AcademicConsessionFormView');
 AcademicConsessionFormView = connect(
     state => {
-        const numberOfCoursesValue = selector(state, 'numberOfCourses')
+        const numberOfCoursesValue = selector(state, 'numberOfCourses');
         return {
             numberOfCoursesValue
-        }
+        };
     }
-)(AcademicConsessionFormView)
+)(AcademicConsessionFormView);
 
 export default reduxForm({
     form: 'AcademicConsessionFormView',

@@ -18,4 +18,8 @@ const App = (props) => {
   );
 };
 
+App.propTypes = {
+  children: PropTypes.object.isRequired
+};
+
 export default App;

@@ -1,9 +1,9 @@
 import React, {PropTypes} from 'react';
 import {Field, reduxForm, formValueSelector} from 'redux-form';
 import { connect } from 'react-redux';
-import RenderField from './RenderField';
-import * as validate from '../constants/Validate';
-import NameField from './NameField';
+import StringInput from './StringInput';
+import EmailInput from './EmailInput';
+import StudentNumberInput from './StudentNumberInput';
 
 let AcademicConsessionFormView = (props) => {
     const { handleSubmit, numberOfCoursesValue } = props;
@@ -12,24 +12,20 @@ let AcademicConsessionFormView = (props) => {
             <h1>Request for Academic Consession</h1>
             <div className="row-fluid">
                 <div className="span6">
-                    <NameField name="firstName" label="First Name" placeholder="First Name"/>
+                    <StringInput name="firstName" label="First Name" placeholder="First Name"/>
                 </div>
                 <div className="span6">
-                    <NameField name="lastName" label="Last Name" placeholder="Last Name"/>
-                </div>
-            </div>
-            <div className="row-fluid">
-                <div className="span6">
-                    <label htmlFor="studentNumber">Student Number</label>
-                    <Field name="studentNumber" component="input" type="text" placeholder="Student Number" className="input"/>
+                    <StringInput name="lastName" label="Last Name" placeholder="Last Name"/>
                 </div>
             </div>
             <div className="row-fluid">
                 <div className="span6">
-                    <Field name="email" type="email"
-                        component={RenderField} label="Email"
-                        validate={[validate.email, validate.required]}
-                    />
+                    <StudentNumberInput name="studentNumber" label="Student Number" placeholder="Student Number"/>
+                </div>
+            </div>
+            <div className="row-fluid">
+                <div className="span6">
+                    <EmailInput name="email" label="Email" placeholder="Email"/>
                 </div>
             </div>
             <div className="row-fluid">

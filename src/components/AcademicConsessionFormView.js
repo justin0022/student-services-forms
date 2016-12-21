@@ -18,7 +18,8 @@ class AcademicConsessionFormView extends React.Component {
 }
 
 AcademicConsessionFormView = reduxForm({
-    form: 'AcademicConsessionFormView'
+    form: 'AcademicConsessionFormView',
+    destroyOnUnmount: false
 })(AcademicConsessionFormView);
 
 export default AcademicConsessionFormView;

@@ -17,7 +17,8 @@ class SampleForm extends React.Component {
 }
 
 SampleForm = reduxForm({
-    form: 'SampleForm'
+    form: 'SampleForm',
+    destroyOnUnmount: false
 })(SampleForm);
 
 export default SampleForm;

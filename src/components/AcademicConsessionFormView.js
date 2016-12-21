@@ -1,10 +1,11 @@
 import React from 'react'
-import {Field, reduxForm} from 'redux-form'
+import {Field, reduxForm, formValueSelector} from 'redux-form'
+import { connect } from 'react-redux'
 import RenderField from './RenderField'
 import * as validate from '../constants/Validate'
 
-const AcademicConsessionFormView = (props) => {
-    const { handleSubmit } = props;
+let AcademicConsessionFormView = (props) => {
+    const { handleSubmit, numberOfCoursesValue } = props;
     return (
         <form onSubmit={handleSubmit}>
             <h1>Request for Academic Consession</h1>
@@ -75,11 +76,25 @@ const AcademicConsessionFormView = (props) => {
                         </Field>
                     </div>
                 </div>
+                {numberOfCoursesValue && <div style={{
+                    height: 80*numberOfCoursesValue,
+                    width: 200,
+                }}/>}
             </div>
         </form>
         
     )
 }
+
+const selector = formValueSelector('AcademicConsessionFormView')
+AcademicConsessionFormView = connect(
+    state => {
+        const numberOfCoursesValue = selector(state, 'numberOfCourses')
+        return {
+            numberOfCoursesValue
+        }
+    }
+)(AcademicConsessionFormView)
 
 export default reduxForm({
     form: 'AcademicConsessionFormView',

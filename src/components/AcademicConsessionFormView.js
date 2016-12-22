@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import StringInput from './StringInput';
 import EmailInput from './EmailInput';
 import StudentNumberInput from './StudentNumberInput';
-import CourseInput from './CourseInput';
+import NumberOfCoursesToDisplay from './NumberOfCoursesToDisplay';
 
 let AcademicConsessionFormView = (props) => {
     const { handleSubmit, numberOfCoursesValue } = props;
@@ -69,9 +69,8 @@ let AcademicConsessionFormView = (props) => {
                             <option value="5">5</option>
                         </Field>
                     </div>
-                    {numberOfCoursesValue && <CourseInput/>}
+                    <NumberOfCoursesToDisplay courseNumber={numberOfCoursesValue}/>
                 </div>
-                
             </div>
         </form>
         

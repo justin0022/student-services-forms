@@ -7,8 +7,9 @@ import Moment from 'moment';
 
 let startDate = Moment();
 
-const CourseInput = () => (
+const CourseInput = (props) => (
     <div>
+        <label>{props.label}</label>
         <Field name="courseAndSection" type="text" component={RenderField} label="Course and Section" validate={[ validate.required ]}/>
         <Field name="instructorName" type="text" component={RenderField} label="Instructor Name" validate={[ validate.required ]}/>
         <label>Exam Date</label>

@@ -99,11 +99,11 @@ let AcademicConsessionFormView = (props) => {
                         </div>}
                     </div>}
                     <h3>Have you previously met an Advisor?</h3>
-                    {!hasMetWithAdvsior && <div>
-                        <Field name="metWithAdvisorNo" component={RenderField} type="checkbox" label="No" />
-                    </div>}
                     {!hasNotMetWithAdvisor && <div>
                         <Field name="metWithAdvisorYes" component={RenderField} type="checkbox" label="Yes" />
+                    </div>}
+                    {!hasMetWithAdvsior && <div>
+                        <Field name="metWithAdvisorNo" component={RenderField} type="checkbox" label="No" />
                     </div>}
                 </div>
             </div>

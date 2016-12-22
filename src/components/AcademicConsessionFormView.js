@@ -82,7 +82,7 @@ let AcademicConsessionFormView = (props) => {
                     {!hasMedicalReason && <div>
                         <Field name="otherReason?"  component={RenderField} type="checkbox" label="Other Reason" />
                         {hasOtherReason && <div>
-                            <Field name="otherReason" component={RenderField} type="input" placeholder="Write Reason Here"/>
+                            <Field name="otherReason" component={RenderField} type="text" placeholder="Write Reason Here"/>
                         </div>}
                     </div>}
                     <h3>In support of my request, I'm submitting one of the following:</h3>
@@ -95,7 +95,7 @@ let AcademicConsessionFormView = (props) => {
                     {!hasMedicalCertificate && <div>
                         <Field name="writtenStatement?" component={RenderField} type="checkbox" label="Written Statement" />
                         {hasWrittenStatement && <div>
-                            <Field name="writtenStatement" component={RenderField} type="input" placeholder="Write Statement Here" />
+                            <Field name="writtenStatement" component={RenderField} type="text" placeholder="Write Statement Here" />
                         </div>}
                     </div>}
                     <h3>Have you previously met an Advisor?</h3>
@@ -114,13 +114,13 @@ let AcademicConsessionFormView = (props) => {
 
 AcademicConsessionFormView.propTypes = {
     handleSubmit: PropTypes.func.isRequired,
-    numberOfCoursesValue: PropTypes.string.isRequired,
-    hasMedicalReason: PropTypes.bool.isRequired,
-    hasOtherReason: PropTypes.bool.isRequired,
-    hasMedicalCertificate: PropTypes.bool.isRequired,
-    hasWrittenStatement: PropTypes.bool.isRequired,
-    hasMetWithAdvsior: PropTypes.bool.isRequired,
-    hasNotMetWithAdvisor: PropTypes.bool.isRequired
+    numberOfCoursesValue: PropTypes.string,
+    hasMedicalReason: PropTypes.bool,
+    hasOtherReason: PropTypes.bool,
+    hasMedicalCertificate: PropTypes.bool,
+    hasWrittenStatement: PropTypes.bool,
+    hasMetWithAdvsior: PropTypes.bool,
+    hasNotMetWithAdvisor: PropTypes.bool
 };
 
 const selector = formValueSelector('AcademicConsessionFormView');

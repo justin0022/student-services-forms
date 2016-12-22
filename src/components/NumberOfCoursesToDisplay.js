@@ -36,7 +36,7 @@ const NumberOfCoursesToDisplay = (props) => {
 };
 
 NumberOfCoursesToDisplay.propTypes = {
-    courseNumber: PropTypes.string.isRequired
+    courseNumber: PropTypes.string
 };
 
 export default NumberOfCoursesToDisplay;

@@ -8,7 +8,7 @@ import NumberOfCoursesToDisplay from './NumberOfCoursesToDisplay';
 import RenderField from './RenderField';
 
 let AcademicConsessionFormView = (props) => {
-    const { handleSubmit, numberOfCoursesValue, hasMedicalReason, hasWrittenStatement, hasOtherReason, hasMedicalCertificate, hasMetWithAdvsior, hasNotMetWithAdvisor } = props;
+    const { handleSubmit, submitting, numberOfCoursesValue, hasMedicalReason, hasWrittenStatement, hasOtherReason, hasMedicalCertificate, hasMetWithAdvsior, hasNotMetWithAdvisor } = props;
     return (
         <form onSubmit={handleSubmit}>
             <h1>Request for Academic Consession</h1>
@@ -106,6 +106,9 @@ let AcademicConsessionFormView = (props) => {
                         <Field name="metWithAdvisorNo" component={RenderField} type="checkbox" label="No" />
                     </div>}
                 </div>
+            </div>
+            <div>
+                <button type="submit" disabled={submitting}>Submit</button>
             </div>
         </form>
         

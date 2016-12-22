@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import CourseInput from './CourseInput';
 
 const NumberOfCoursesToDisplay = (props) => {
@@ -33,6 +33,10 @@ const NumberOfCoursesToDisplay = (props) => {
                     </div>);
         default: return <div> </div>;
     }
+};
+
+NumberOfCoursesToDisplay.propTypes = {
+    courseNumber: PropTypes.string.isRequired
 };
 
 export default NumberOfCoursesToDisplay;

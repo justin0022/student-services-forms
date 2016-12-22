@@ -109,7 +109,12 @@ let AcademicConsessionFormView = (props) => {
 };
 
 AcademicConsessionFormView.propTypes = {
-    handleSubmit: PropTypes.func.isRequired
+    handleSubmit: PropTypes.func.isRequired,
+    numberOfCoursesValue: PropTypes.string.isRequired,
+    hasMedicalReason: PropTypes.bool.isRequired,
+    hasOtherReason: PropTypes.bool.isRequired,
+    hasMedicalCertificate: PropTypes.bool.isRequired,
+    hasWrittenStatement: PropTypes.bool.isRequired
 };
 
 const selector = formValueSelector('AcademicConsessionFormView');

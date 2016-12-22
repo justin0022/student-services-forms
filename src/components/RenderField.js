@@ -2,8 +2,11 @@ import React, {PropTypes} from 'react';
 
 const RenderField = ({ input, label, placeholder, type, meta: { touched, error, warning } }) => (
   <div>
-    <label>{label}</label><input {...input} placeholder={placeholder} type={type} className="input"/>
+    <label>{label}</label>
+    <div>
+      <input {...input} placeholder={placeholder} type={type} className="input"/>
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+    </div>
   </div>
 );
 

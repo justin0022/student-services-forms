@@ -9,7 +9,7 @@ let startDate = Moment();
 
 const CourseInput = (props) => (
     <div>
-        <label>{props.label}</label>
+        <h3>{props.label}</h3>
         <Field name={props.name} type="text" component={RenderField} label="Course and Section" validate={[ validate.required ]}/>
         <Field name={props.instructorName} type="text" component={RenderField} label="Instructor Name" validate={[ validate.required ]}/>
         <label>Exam Date</label>

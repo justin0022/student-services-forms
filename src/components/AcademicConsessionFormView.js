@@ -5,6 +5,7 @@ import StringInput from './StringInput';
 import EmailInput from './EmailInput';
 import StudentNumberInput from './StudentNumberInput';
 import NumberOfCoursesToDisplay from './NumberOfCoursesToDisplay';
+import RenderField from './RenderField';
 
 let AcademicConsessionFormView = (props) => {
     const { handleSubmit, numberOfCoursesValue } = props;
@@ -70,6 +71,14 @@ let AcademicConsessionFormView = (props) => {
                         </Field>
                     </div>
                     <NumberOfCoursesToDisplay courseNumber={numberOfCoursesValue}/>
+                </div>
+            </div>
+             <div className="row-fluid">
+                <div className="span12">
+                    <h3>My request is based on: </h3>
+                    <Field name="medicalReason"  component={RenderField} type="checkbox" label="Medical Reason" />
+                    <Field name="otherReason" component={RenderField} type="input" label="Other Reason" />
+                    <h3>In support of my request, I'm submitting one of the following:</h3>
                 </div>
             </div>
         </form>

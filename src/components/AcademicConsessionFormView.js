@@ -6,6 +6,7 @@ import EmailInput from './EmailInput';
 import StudentNumberInput from './StudentNumberInput';
 import NumberOfCoursesToDisplay from './NumberOfCoursesToDisplay';
 import RenderField from './RenderField';
+import DropZone from 'react-dropzone';
 
 let AcademicConsessionFormView = (props) => {
     const { handleSubmit, submitting, numberOfCoursesValue, hasMedicalReason, hasWrittenStatement, hasOtherReason, hasMedicalCertificate, hasMetWithAdvsior, hasNotMetWithAdvisor } = props;
@@ -89,7 +90,7 @@ let AcademicConsessionFormView = (props) => {
                     {!hasWrittenStatement && <div>
                         <Field name="medicalCertificate?" component={RenderField} type="checkbox" label="A medical certificate" />
                         {hasMedicalCertificate && <div>
-                            <p>formUploader</p>
+                            <DropZone><p>Upload Files Here</p></DropZone>
                         </div>}
                     </div>}
                     {!hasMedicalCertificate && <div>

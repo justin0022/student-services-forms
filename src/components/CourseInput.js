@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Field} from 'redux-form';
 import * as validate from '../constants/Validate';
 import RenderField from './RenderField';
@@ -14,7 +14,15 @@ const CourseInput = (props) => (
         <Field name={props.instructorName} type="text" component={RenderField} label="Instructor Name" validate={[ validate.required ]}/>
         <label>Exam Date</label>
         <DatePicker name="examDate" selected={startDate} />
+        <Field name={props.workOutstanding} type="text" component={RenderField} label="Work Outstanding" validate={[ validate.required ]}/>
     </div>
 );
+
+CourseInput.propTypes = {
+    label: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    instructorName: PropTypes.string.isRequired,
+    workOutstanding: PropTypes.string.isRequired
+};
 
 export default CourseInput;

@@ -8,7 +8,7 @@ import NumberOfCoursesToDisplay from './NumberOfCoursesToDisplay';
 import RenderField from './RenderField';
 
 let AcademicConsessionFormView = (props) => {
-    const { handleSubmit, numberOfCoursesValue, hasMedicalReason } = props;
+    const { handleSubmit, numberOfCoursesValue, hasMedicalReason, hasWrittenStatement, hasOtherReason, hasMedicalCertificate } = props;
     return (
         <form onSubmit={handleSubmit}>
             <h1>Request for Academic Consession</h1>
@@ -76,11 +76,31 @@ let AcademicConsessionFormView = (props) => {
              <div className="row-fluid">
                 <div className="span12">
                     <h3>My request is based on: </h3>
-                    <Field name="medicalReason"  component={RenderField} type="checkbox" label="Medical Reason" />
+                    {!hasOtherReason && <div>
+                        <Field name="medicalReason?"  component={RenderField} type="checkbox" label="Medical Reason" />
+                    </div>}
                     {!hasMedicalReason && <div>
-                        <Field name="otherReason" component={RenderField} type="input" label="Other Reason" />
+                        <Field name="otherReason?"  component={RenderField} type="checkbox" label="Other Reason" />
+                        {hasOtherReason && <div>
+                            <Field name="otherReason" component={RenderField} type="input" placeholder="Write Reason Here"/>
+                        </div>}
                     </div>}
                     <h3>In support of my request, I'm submitting one of the following:</h3>
+                    {!hasWrittenStatement && <div>
+                        <Field name="medicalCertificate?" component={RenderField} type="checkbox" label="A medical certificate" />
+                        {hasMedicalCertificate && <div>
+                            <p>formUploader</p>
+                        </div>}
+                    </div>}
+                    {!hasMedicalCertificate && <div>
+                        <Field name="writtenStatement?" component={RenderField} type="checkbox" label="Written Statement" />
+                        {hasWrittenStatement && <div>
+                            <Field name="writtenStatement" component={RenderField} type="input" placeholder="Write Statement Here" />
+                        </div>}
+                    </div>}
+                    <h3>Have you previously met an Advisor?</h3>
+                    <Field name="metWithAdvisorYes" component={RenderField} type="checkbox" label="Yes" />
+                    <Field name="metWithAdvisorNo" component={RenderField} type="checkbox" label="No" />
                 </div>
             </div>
         </form>
@@ -96,10 +116,16 @@ const selector = formValueSelector('AcademicConsessionFormView');
 AcademicConsessionFormView = connect(
     state => {
         const numberOfCoursesValue = selector(state, 'numberOfCourses');
-        const hasMedicalReason = selector(state, 'medicalReason');
+        const hasMedicalReason = selector(state, 'medicalReason?');
+        const hasOtherReason = selector(state, 'otherReason?');
+        const hasMedicalCertificate = selector(state, 'medicalCertificate?');
+        const hasWrittenStatement = selector(state, 'writtenStatement?');
         return {
             numberOfCoursesValue,
-            hasMedicalReason
+            hasMedicalReason,
+            hasWrittenStatement,
+            hasOtherReason,
+            hasMedicalCertificate
         };
     }
 )(AcademicConsessionFormView);

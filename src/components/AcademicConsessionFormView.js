@@ -8,7 +8,7 @@ import NumberOfCoursesToDisplay from './NumberOfCoursesToDisplay';
 import RenderField from './RenderField';
 
 let AcademicConsessionFormView = (props) => {
-    const { handleSubmit, numberOfCoursesValue, hasMedicalReason, hasWrittenStatement, hasOtherReason, hasMedicalCertificate } = props;
+    const { handleSubmit, numberOfCoursesValue, hasMedicalReason, hasWrittenStatement, hasOtherReason, hasMedicalCertificate, hasMetWithAdvsior, hasNotMetWithAdvisor } = props;
     return (
         <form onSubmit={handleSubmit}>
             <h1>Request for Academic Consession</h1>
@@ -99,8 +99,12 @@ let AcademicConsessionFormView = (props) => {
                         </div>}
                     </div>}
                     <h3>Have you previously met an Advisor?</h3>
-                    <Field name="metWithAdvisorYes" component={RenderField} type="checkbox" label="Yes" />
-                    <Field name="metWithAdvisorNo" component={RenderField} type="checkbox" label="No" />
+                    {!hasMetWithAdvsior && <div>
+                        <Field name="metWithAdvisorNo" component={RenderField} type="checkbox" label="No" />
+                    </div>}
+                    {!hasNotMetWithAdvisor && <div>
+                        <Field name="metWithAdvisorYes" component={RenderField} type="checkbox" label="Yes" />
+                    </div>}
                 </div>
             </div>
         </form>
@@ -114,7 +118,9 @@ AcademicConsessionFormView.propTypes = {
     hasMedicalReason: PropTypes.bool.isRequired,
     hasOtherReason: PropTypes.bool.isRequired,
     hasMedicalCertificate: PropTypes.bool.isRequired,
-    hasWrittenStatement: PropTypes.bool.isRequired
+    hasWrittenStatement: PropTypes.bool.isRequired,
+    hasMetWithAdvsior: PropTypes.bool.isRequired,
+    hasNotMetWithAdvisor: PropTypes.bool.isRequired
 };
 
 const selector = formValueSelector('AcademicConsessionFormView');
@@ -125,12 +131,16 @@ AcademicConsessionFormView = connect(
         const hasOtherReason = selector(state, 'otherReason?');
         const hasMedicalCertificate = selector(state, 'medicalCertificate?');
         const hasWrittenStatement = selector(state, 'writtenStatement?');
+        const hasMetWithAdvsior = selector(state, 'metWithAdvisorYes');
+        const hasNotMetWithAdvisor = selector(state, 'metWithAdvisorNo');
         return {
             numberOfCoursesValue,
             hasMedicalReason,
             hasWrittenStatement,
             hasOtherReason,
-            hasMedicalCertificate
+            hasMedicalCertificate,
+            hasMetWithAdvsior,
+            hasNotMetWithAdvisor
         };
     }
 )(AcademicConsessionFormView);

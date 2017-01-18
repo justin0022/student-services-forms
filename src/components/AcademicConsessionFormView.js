@@ -9,7 +9,20 @@ import RenderField from './RenderField';
 import DropZone from 'react-dropzone';
 
 let AcademicConsessionFormView = (props) => {
-    const { handleSubmit, submitting, numberOfCoursesValue, hasMedicalReason, hasWrittenStatement, hasOtherReason, hasMedicalCertificate, hasMetWithAdvsior, hasNotMetWithAdvisor } = props;
+    const { 
+        handleSubmit, 
+        submitting, 
+        numberOfCoursesValue, 
+        hasMedicalReason, 
+        hasWrittenStatement, 
+        hasOtherReason, 
+        hasMedicalCertificate, 
+        hasMetWithAdvsior, 
+        hasNotMetWithAdvisor 
+    } = props;
+    const handleButton = (event) => {
+        alert("button pressed");
+    };
     return (
         <form onSubmit={handleSubmit}>
             <h1>Request for Academic Consession</h1>
@@ -110,6 +123,7 @@ let AcademicConsessionFormView = (props) => {
             </div>
             <div>
                 <button type="submit" disabled={submitting}>Submit</button>
+                <a href="#" onClick={handleButton}>Button</a>
             </div>
         </form>
         
